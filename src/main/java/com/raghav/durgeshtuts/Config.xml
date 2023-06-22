@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p= "http://www.springframework.org/schema/p"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!-- method 1 = using value as element  -->
+    <bean class="com.raghav.durgeshtuts.UserInfo" name="thisNameWillBeGivenInGetBeanMwthod">
+    	<property name="nameString">
+    		<value>Raghvendra Singh</value>
+    	</property>
+    	<property name="emailIdString">
+    		<value>Rssingh@gmail.com</value>
+    	</property>
+    	<property name="mobileString">
+    		<value>1234567890</value>
+    	</property>
+    	<property name="fatherNameString">
+    		<value>Anil Kumar</value>
+    	</property>
+    </bean>
+    
+<!-- method 2 = using value as attribute  -->
+    <bean class="com.raghav.durgeshtuts.UserInfo" name="thisNameWillBeGivenInGetBeanMwthod2">
+    	<property name="nameString" value="abhay Singh" />
+    	<property name="emailIdString" value="abhay@gmail.com" />
+    	<property name="mobileString" value="0987654321" />
+    	<property name="fatherNameString" value="Anil Kumar" />
+    </bean>
+    
+<!-- method 3 = using p(property) schema -->
+    <bean class="com.raghav.durgeshtuts.UserInfo" name="thisNameWillBeGivenInGetBeanMwthod3" p:nameString="Vaibhav Singh" p:emailIdString="vaibhav@gmail.com" p:mobileString="8324728213" p:fatherNameString="Anil Kumar" />
+    
+
+</beans>
+

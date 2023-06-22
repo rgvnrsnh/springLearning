@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p= "http://www.springframework.org/schema/p"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<bean class = "com.raghav.autowiring.Address" name = "addressVal">
+		<property name="Street" value="5th street" />
+		<property name="city" value="Kanpur" />
+	</bean>
+	
+	<bean name ="emp1" class = "com.raghav.autowiring.Employee" autowire="byName" />  <!-- by name mein above bean name and reference variable name same hona chahiye i.e addressVal  -->
+	<bean name ="emp2" class = "com.raghav.autowiring.Employee" autowire="byType" /> <!-- by type mein xml file mein address type ki bean search krega jo ml gyi vahi set kr dega agr 2 mili to throw exception  -->
+	<!-- both byname and bytype uses setter injection of Employee class but byconstructor uses parameterized constructor of the emp class -->
+
+	<bean name ="emp3" class = "com.raghav.autowiring.Employee" autowire="constructor" />
+<!-- for autowired annotation use @autowired before employee property for byname , before setter for bytype before parameterized constructor for constructor and don't need this 18,19 22nd line after that   -->	
+
+</beans>
+

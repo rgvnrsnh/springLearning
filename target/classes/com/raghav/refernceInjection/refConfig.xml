@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p= "http://www.springframework.org/schema/p"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean class="com.raghav.refernceInjection.ClassA" name="aref" p:lastName="Singh" p:motherLastName="Devi" p:fatherLastName="Gangwar" />
+
+<!-- 	
+ method1 using ref element ->
+
+	<bean class="com.raghav.refernceInjection.ClassB" name="bref">
+		<property name="firstName" value="Raghav" />
+		<property name="motherFirstName" value="Bina" />
+		<property name="fatherFirstName" value="Anil" />
+		
+		<property name="objA">
+			<ref bean="aref" />
+		</property>
+	</bean>	
+-->
+	 
+<!-- method2 using p schema  = p:propertyVarName-ref="refernce bean name" --> 
+
+	<bean class="com.raghav.refernceInjection.ClassB" name="bref" p:firstName="Raghav" p:motherFirstName="Bina" p:fatherFirstName="Anil" p:objA-ref="aref" />
+	
+</beans>
+

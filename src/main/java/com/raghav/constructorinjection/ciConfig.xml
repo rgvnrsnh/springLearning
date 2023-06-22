@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p= "http://www.springframework.org/schema/p"
+    xmlns:c= "http://www.springframework.org/schema/c"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean class="com.raghav.constructorinjection.Certificate" name="cert1" >
+		<constructor-arg value="Spring Course" />
+	</bean>
+	
+	<bean class="com.raghav.constructorinjection.Certificate" name="cert2" c:certName="Hibernate Course" />
+	
+<!-- This one will call constructor with String String params  -->	
+	<bean class="com.raghav.constructorinjection.Student" name="raghav1">
+		<constructor-arg value="Saurabh" type="String" />
+		<constructor-arg value="sixth" type="String" />
+	</bean>
+	
+<!-- This one will call constructor with String int params  -->	
+		<bean class="com.raghav.constructorinjection.Student" name="raghav2">
+		<constructor-arg value="Saurabh" type="String" />
+		<constructor-arg value="10" type="int" />
+	</bean>
+	
+<!-- This one will call constructor with String int String Certificate params  -->	
+		<bean class="com.raghav.constructorinjection.Student" name="raghav3">
+		<constructor-arg value="Saurabh" type="String" />
+		<constructor-arg value="10" type="int" />
+		<constructor-arg value="Sixth" type="String" />
+		<constructor-arg ref="cert1" />
+	</bean>	
+	
+<!-- providing collections also  -->	
+		<bean class="com.raghav.constructorinjection.Student" name="raghav5">
+			<constructor-arg value="Saurabh" type="String" />
+			<constructor-arg value="10" type="int" />
+			<constructor-arg value="Sixth" type="String" />
+			<constructor-arg ref="cert1" />
+			<constructor-arg>
+				<list>
+					<value>123</value>
+					<value>lucknow</value>
+					<value>delhi</value>
+					<value>kanpur</value>
+				</list>
+			</constructor-arg>
+		</bean>
+	
+<!-- using c(constructor) Schema  -->
+	<bean class="com.raghav.constructorinjection.Student" name="raghav4"  c:nameString="Abhay" c:rollNum="21" c:classString="third" c:cert-ref="cert2" />	
+	
+</beans>
+
