@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p= "http://www.springframework.org/schema/p"
+    xmlns:util= "http://www.springframework.org/schema/util"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/util
+		http://www.springframework.org/schema/util/spring-util.xsd">
+		
+		<!-- this util schema and util schemalocation needed for standalone  -->
+		
+		<util:list list-class="java.util.LinkedList" id="standaloneList">
+			<value>Aman</value>
+			<value>Akash</value>
+			<value>bharat</value>
+			<value>abhishek</value>
+			<value>manish</value>
+		</util:list>
+		
+		<util:map map-class="java.util.TreeMap" id="standaloneMap">
+			<entry key="java" value="500.50" />
+			<entry key="C" value="1500.750" />
+			<entry key="C++" value="5300.560" />
+			<entry key="python" value="5400.550" />
+		</util:map>
+		
+		<util:properties id="dbConnection">
+			<prop key="driver">com.mysql.jdbc.driver</prop>
+			<prop key="user">localhost</prop>
+			<prop key="password">welcome1</prop>
+			<prop key="url">mysql:jdbc://localhost:3306/dbname</prop>
+		</util:properties>
+		
+		<util:set set-class="java.util.TreeSet" id="standaloneSet">
+			<value>23</value>
+			<value>454</value>
+			<value>2342</value>
+			<value>634342</value>
+			<value>232</value>
+		</util:set>
+		
+		
+		<bean class="com.raghav.standaloneCollection.Person" name="person1">
+			<property name="friend" ref="standaloneList"></property>
+			<property name="courses" ref="standaloneMap"></property>
+			<property name="props" ref="dbConnection"></property>
+			<property name="val" ref="standaloneSet"></property>
+		</bean>
+		
+		
+</beans>		
